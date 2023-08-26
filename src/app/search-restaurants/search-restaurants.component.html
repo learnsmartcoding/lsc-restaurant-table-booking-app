@@ -1,0 +1,111 @@
+<!-- ======= Book A Table Section ======= -->
+<section id="book-a-table1" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <!-- <h2>{{headingTitle}}</h2> -->
+            <h2 [innerText]="headingTitle"></h2>
+            <p>Book <span>Your Stay</span> With Us</p>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"
+                data-aos="zoom-out" data-aos-delay="200"></div>
+            <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+                <div style="margin:10px;">
+                    <div class="row gy-4">
+                        <div class="col-lg-12 col-md-12">
+                            <!-- Search input using two-way data binding with [(ngModel)] -->
+                            <input type="text" [(ngModel)]="searchTerm" name="searchText" class="form-control"
+                                (ngModelChange)="filterRestaurants()" id="searchText"
+                                placeholder="Search restaurants" />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row gy-4">
+                        <div class="col-lg-6 col-md-6">
+                            <!-- Select control for listing restaurants -->
+                            <div class="form-group">
+                                <select class="form-control" id="restaurantSelect" [(ngModel)]="selectedRestaurantId"
+                                    (ngModelChange)="filterBranches($event)">
+                                    <option selected value="-1">Select a Restaurant</option>
+                                    <option *ngFor="let restaurant of filteredRestaurants" [value]="restaurant.id">{{
+                                        restaurant.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <!-- Select control for listing branches of the selected restaurant -->
+                            <div class="form-group">
+                                <select class="form-control" id="branchSelect" [(ngModel)]="selectedBranchId"
+                                    (ngModelChange)="onBranchSelected($event)">
+                                    <!-- Default "Select one" option -->
+                                    <option selected value="-1">Select a Restaurant Branch</option>
+                                    <!-- Options for branches -->
+                                    <option *ngFor="let branch of filteredBranches" [ngValue]="branch.id">{{ branch.name
+                                        }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12" *ngIf="selectRestaurant">
+                            <p>You have selected <span style="color: mediumvioletred;">{{selectRestaurant.name}}</span>
+                                and we have {{filteredBranches.length}} branches, select a branch to proceed</p>
+                        </div>
+                        <div class="col-lg-12 col-md-12" *ngIf="reservationSuccess">
+                            <p>Thank you for reserving a table with us. Your reservation for table <strong>{{ selectedTable.tableName }}</strong> is confirmed. We look forward to serving you a delightful meal. See you soon!</p>
+
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <div class="col-md-3" *ngFor="let day of distinctReservationDays"
+                                    (click)="reservationDayClicked(day)">
+                                    <span class="span-sm">{{formatDate(day)}}</span><br>
+                                    <img src="../../assets/custom/calandar-booknow.gif" width="75px" height="75px">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="row justify-content-center dining-div">
+                            <div *ngFor="let table of bookingTables" class="col-md-4 mb-4">
+                                <div class="card dining-table-card">
+                                    <div class="card-header text-center">
+                                        <h5 class="card-title">{{ table.tableName }}</h5>
+                                    </div>
+                                    <img src="../../assets/custom/dining-table.png"
+                                        class="card-img-top dining-table-img" alt="Dining Table">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            <strong>Date:</strong> {{ table.reservationDay | date:'longDate' }}
+                                        </p>
+                                        <p class="card-text">
+                                            <strong>Meal Type:</strong> {{ table.mealType }}
+                                        </p>
+                                        <p class="card-text">
+                                            <strong>Table Status:</strong> {{ table.tableStatus }}
+                                        </p>
+                                        <button class="btn btn-success btn-block" *ngIf="table.tableStatus==='Available'" (click)="bookTable(table);openModal(template);">Book
+                                            Table</button>
+                                            <button class="btn btn-success btn-block" *ngIf="table.tableStatus!=='Available'" disabled>{{table.tableStatus}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Reserve a table</h4>
+      <button type="button" class="close btn-close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <app-collect-user-info [selectedTable]="selectedTable" (onUserBookinginfoComplete)="onUserBookinginfoComplete($event)"></app-collect-user-info>
+    </div>
+</ng-template>

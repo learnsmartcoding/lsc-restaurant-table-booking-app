@@ -1,8 +1,14 @@
 
+<div class="overlay show" *ngIf="spinnerService.spinnerCounter$ | async">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 <app-header></app-header>
-<main id="main">  
-  <app-home></app-home>
-  <!-- <router-outlet></router-outlet>   -->
+
+<main id="main">
+  
+  <router-outlet></router-outlet>  
 </main><!-- End #main -->
 <app-footer></app-footer>
 <!-- End Footer -->

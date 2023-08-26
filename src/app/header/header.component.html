@@ -10,12 +10,12 @@
   
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">Chefs</a></li>
-          <li><a href="#">Gallery</a></li>
+          <li><a href="#" [routerLink]="['/home']" routerLinkActive="router-link-active"  >Home</a></li>
+          <li><a href="#" [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a></li>
+          <li><a href="#" [routerLink]="['/menu']" routerLinkActive="router-link-active" >Menu</a></li>
+          <li><a href="#" [routerLink]="['/events']" routerLinkActive="router-link-active" >Events</a></li>
+          <li><a href="#" [routerLink]="['/chefs']" routerLinkActive="router-link-active" >Chefs</a></li>
+          <li><a href="#" [routerLink]="['/gallery']" routerLinkActive="router-link-active" >Gallery</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -33,11 +33,11 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> -->
-          <li><a href="#"  >Contact</a></li>
+          <li><a href="#" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
   
-      <a class="btn-book-a-table" href="#">Book a Table</a>
+      <a class="btn-book-a-table" href="#" [routerLink]="['/book-a-table']" routerLinkActive="router-link-active" >Book a Table</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
   

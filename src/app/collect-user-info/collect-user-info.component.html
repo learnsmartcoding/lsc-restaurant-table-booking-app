@@ -1,0 +1,39 @@
+
+
+
+  <!-- ======= Book A Table Section ======= -->
+  <section id="book-a-table11" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Reserving for {{selectedTable.tableName}} Table</h2>
+        <p>Tell us <span>Your details</span> Just a little</p>
+      </div>
+
+      <div class="row col-md-12 col-lg-12">
+
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <!-- <label for="firstName">First Name:</label> -->
+              <input type="text" id="firstName" formControlName="firstName" placeholder="First Name" class="form-control" />
+            </div><br>
+            <div class="form-group">
+              <!-- <label for="lastName">Last Name:</label> -->
+              <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name" class="form-control" />
+            </div><br>
+            <div class="form-group">
+              <!-- <label for="emailId">Email:</label> -->
+              <input type="email" id="emailId" formControlName="emailId" placeholder="Email Id" class="form-control" />
+            </div><br>
+            <div class="form-group">
+              <!-- <label for="phoneNumber">Phone Number:</label> -->
+              <input type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number" class="form-control" />
+            </div>
+            <br>
+            <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Submit</button>
+          </form>
+
+      </div>
+
+    </div>
+  </section><!-- End Book A Table Section -->
+  

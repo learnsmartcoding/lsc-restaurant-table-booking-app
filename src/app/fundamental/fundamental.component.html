@@ -1,0 +1,106 @@
+<section id="fundamental" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+        <h4 data-aos="fade-up">We will learn some basics of bindings and other concepts</h4>
+        <hr>
+        <div class="row">
+            <div class="col-lg-4">
+                <h5>Bindings</h5>
+                <hr>
+                <p>In Angular, bindings are a fundamental concept that enables dynamic communication between your
+                    application's components and the view. Bindings allow you to effortlessly synchronize data and
+                    update the user interface in response to changes.</p>
+                <ol>
+                    <li>
+                        Interpolation: Use double curly braces to embed component data directly into the HTML template.
+                        For example, double curly brace username will display the value of the username property.
+                    </li>
+                    <li>Property Binding: Bind an HTML element's property to a component property using square brackets
+                        [ ]. For instance, [src]="imageUrl" binds the imageUrl property to the src attribute of an <img>
+                        tag.</li>
+                    <li>Event Binding: Respond to user interactions by binding a component method to an HTML event using
+                        parentheses ( ). For instance, (click)="handleClick()" triggers the handleClick() method when
+                        the element is clicked.</li>
+                    <li>Two-Way Binding: Achieve synchronization between user input and component data using the
+                        [(ngModel)] directive. It combines property binding and event binding to enable data flow in
+                        both directions.</li>
+                </ol>
+                <h5>Structural directives</h5>
+                <hr>
+                <p>*ngIf and *ngFor are called structural directives in Angular. Structural directives are used to
+                    modify the structure of the DOM by adding or removing elements based on certain conditions. They
+                    play a crucial role in dynamically rendering content in Angular templates.</p>
+                <ol>
+                    <li>
+                        *ngIf Directive: This directive is used to conditionally render an element in the DOM based on a
+                        provided expression. If the expression evaluates to true, the element is included in the DOM; if
+                        it evaluates to false, the element is removed from the DOM.
+                    </li>
+                    <li>
+                        *ngFor Directive: This directive is used to repeat a portion of the template for each item in an
+                        iterable collection. It generates multiple instances of the element and binds them to the values
+                        from the collection.
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <div class="col-lg-8">
+                <div>
+                    <strong>
+                        Interpolation
+                    </strong>
+                    <!-- Displaying component data using interpolation -->
+                    <p>Welcome, {{username}}! {{1+5}}</p>
+                    <!-- Binding to the 'title' attribute using interpolation -->
+                    <button title="click to {{action}}" class="btn btn-sm btn-success">Button</button>
+                </div>
+                <br>
+                <div>
+                    <strong>
+                        Property Binding:
+                    </strong>
+                    <!-- Binding the 'src' property of an image to a component property -->
+                    <img class="logo" [src]="imageUrl" alt="Image" />
+                    <!-- Binding to the 'disabled' property using property binding -->
+                    <button [disabled]="isDisabled" class="btn btn-sm btn-success">Disabled Button</button>
+
+                </div>
+                <br>
+                <div>
+                    <strong>
+                        Event Binding:
+                    </strong>
+                    <!-- Binding a button click event to a component method -->
+                    <button (click)="handleClick()" class="btn btn-primary">Click me</button>
+
+                </div>
+                <br>
+                <div>
+                    <strong>
+                        Two-Way Binding:
+                    </strong>
+                    <!-- Using two-way binding to synchronize input and component property -->
+                    <input [(ngModel)]="username" class="form-control" />
+                    <p>You typed: {{username}}</p>
+                </div>
+                <hr>
+                <h5>Structural Directives</h5>
+                <div>
+                    <div *ngIf="showElement">This element is shown conditionally.</div>
+
+                </div>
+                <div>
+                    <ul>
+                       <li *ngFor="let item of fruits">{{item}}</li>
+                       <li *ngFor="let item of fruits">{{item}}</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Hero Section -->
+
+
+
+

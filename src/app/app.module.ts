@@ -16,7 +16,15 @@ import { StatsCounterComponent } from './stats-counter/stats-counter.component';
 import { WhyUsComponent } from './why-us/why-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms';
+import { SearchRestaurantsComponent } from './search-restaurants/search-restaurants.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { DaySuffixPipe } from './shared/constants/pipes/day-suffix.pipe';
+import { CollectUserInfoComponent } from './collect-user-info/collect-user-info.component';
+import { HttpInterceptorService } from './service/spinner-interceptor.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,14 +41,31 @@ import { FormsModule } from '@angular/forms';
     StatsCounterComponent,
     WhyUsComponent,
     FooterComponent,
-    HeaderComponent    
+    HeaderComponent,
+    SearchRestaurantsComponent,
+    DaySuffixPipe,
+    CollectUserInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    ModalModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    })
   ],
-  providers: [],
+  providers: [DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

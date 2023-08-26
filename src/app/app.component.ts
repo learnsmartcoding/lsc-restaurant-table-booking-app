@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SpinnerService } from './service/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lsc-restaurant-table-booking-app';
-  constructor(){}
+  constructor(public spinnerService: SpinnerService){}
 }

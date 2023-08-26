@@ -1,0 +1,59 @@
+.dining-div{
+    max-height: 400px;   
+    overflow: auto; 
+}
+img{
+    cursor: pointer;
+}
+.span-sm{
+    font-size: small;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+/* Custom styles for dining table cards */
+.dining-table-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .dining-table-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dining-table-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+  }
+  
+  .card-header {
+    background-color: #f8f9fa; /* Add a light background color to the card header */
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0; /* Remove the default margin for card title */
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
