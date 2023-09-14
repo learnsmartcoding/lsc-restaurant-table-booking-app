@@ -17,6 +17,7 @@ export class SearchRestaurantsComponent implements OnInit {
   searchTerm: string = ''; // The search term entered by the user
   restaurants: Restaurant[] = [];
   filteredRestaurants: Restaurant[] = [];
+  userEmailId='';
 
   selectRestaurant!: Restaurant | undefined;
 
@@ -67,6 +68,7 @@ export class SearchRestaurantsComponent implements OnInit {
   getRestaurantBranches() {
     this.restaurantService.GetRestaurantBranches(this.selectedRestaurantId).subscribe(s => {
       this.restaurantBranches = s;
+      this.filterBranches(this.selectedRestaurantId);
     });
   }
 
@@ -181,5 +183,14 @@ export class SearchRestaurantsComponent implements OnInit {
         restaurant.name.toLowerCase().includes(searchTermLower) || // Filter by restaurant name
         restaurant.address.toLowerCase().includes(searchTermLower) // Filter by restaurant address
     );
+  }
+
+  checkInReservation(table: DiningTable){
+    this.toastr.info('We have sent your check in request','Initiated')
+    this.reservationService.UpdateReservation(table).subscribe(data => {
+      this.toastr.success('You have checked in and now it is time enjoy your meal!','Success')
+      this.reservationSuccess = true;
+      this.reset();
+    })
   }
 }

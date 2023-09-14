@@ -25,6 +25,15 @@ export interface Restaurant{
     mealType: string;
     tableStatus: string;
     timeSlotId: number;
+    userEmailId:string;
+  }
+
+  export interface CheckInDiningTable{
+    branchId: number;
+    reservationDay: Date;        
+    tableStatus: string;
+    timeSlotId: number;    
+    userEmailId: string;
   }
 
   export interface ReserveTable{

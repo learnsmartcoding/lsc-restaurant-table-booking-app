@@ -9,7 +9,8 @@ import { DatePipe } from '@angular/common';
 export class RestaurantService {
     private apiUrl: string;
     constructor(private http: HttpClient, private datePipe: DatePipe) {
-        this.apiUrl = 'https://lsc-table-booking-app-api.azurewebsites.net/api/';
+        this.apiUrl = 'https://localhost:7133/api/';
+        //'https://lsc-table-booking-app-api.azurewebsites.net/api/';
     }
 
     //   GetRestaurants(id: number): Observable<Restaurant> {

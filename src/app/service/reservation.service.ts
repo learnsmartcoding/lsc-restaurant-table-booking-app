@@ -9,8 +9,8 @@ import { DatePipe } from '@angular/common';
 export class ReservationService {
     private apiUrl: string;
     constructor(private http: HttpClient, private datePipe: DatePipe) {
-        this.apiUrl = //'https://localhost:7133/api';
-        'https://lsc-table-booking-app-api.azurewebsites.net/api';
+        this.apiUrl = 'https://localhost:7133/api';
+            //'https://lsc-table-booking-app-api.azurewebsites.net/api';
     }
 
     //   GetRestaurants(id: number): Observable<Restaurant> {
@@ -20,8 +20,13 @@ export class ReservationService {
 
     CreateReservation(model: ReserveTable): Observable<any> {
         const url = `${this.apiUrl}/Reservation`;
-        return this.http.post(url,model);
-      }
+        return this.http.post(url, model);
+    }
+
+    UpdateReservation(model: DiningTable): Observable<any> {
+        const url = `${this.apiUrl}/Reservation/CheckIn`;
+        return this.http.post(url, model);
+    }
 
     getCurrentDate(reservationDay: Date): string {
         return this.datePipe.transform(reservationDay, 'MM-dd-yyyy') || '';
