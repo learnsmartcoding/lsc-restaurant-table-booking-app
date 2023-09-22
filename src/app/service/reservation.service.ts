@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { DiningTable, ReserveTable, Restaurant, RestaurantBranch } from '../models/restaurants.model';
 import { DatePipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
 export class ReservationService {
     private apiUrl: string;
     constructor(private http: HttpClient, private datePipe: DatePipe) {
-        this.apiUrl = 'https://localhost:7133/api';
-            //'https://lsc-table-booking-app-api.azurewebsites.net/api';
+        this.apiUrl = environment.apiUrl;
     }
 
     //   GetRestaurants(id: number): Observable<Restaurant> {
@@ -19,12 +19,12 @@ export class ReservationService {
     //   }
 
     CreateReservation(model: ReserveTable): Observable<any> {
-        const url = `${this.apiUrl}/Reservation`;
+        const url = `${this.apiUrl}/${environment.apiEndpoints.saveReservation}`;
         return this.http.post(url, model);
     }
 
     UpdateReservation(model: DiningTable): Observable<any> {
-        const url = `${this.apiUrl}/Reservation/CheckIn`;
+        const url = `${this.apiUrl}/${environment.apiEndpoints.updateReservation}`;
         return this.http.post(url, model);
     }
 

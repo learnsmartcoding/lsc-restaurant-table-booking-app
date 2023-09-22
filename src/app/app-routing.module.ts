@@ -8,6 +8,8 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { EventsComponent } from './events/events.component';
 import { ChefsComponent } from './chefs/chefs.component';
 import { SearchRestaurantsComponent } from './search-restaurants/search-restaurants.component';
+import { ClaimsDetailsComponent } from './claims-details/claims-details.component';
+import { RoleAuthGuard } from './core/role-auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -23,6 +25,10 @@ const routes: Routes = [
     path: 'contact', component: ContactComponent
   }, {
     path: 'gallery', component: GalleryComponent
+  },
+  {
+    path: 'claims', component: ClaimsDetailsComponent,
+    canActivate: [RoleAuthGuard] // Apply the RoleAuthGuard to this route
   },
   { path: 'book-a-table', component: SearchRestaurantsComponent }];
 
