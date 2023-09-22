@@ -1,11 +1,12 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { DiningTable, ReserveTable, Restaurant, RestaurantBranch } from '../models/restaurants.model';
+import { Claim, DiningTable, ReserveTable, Restaurant, RestaurantBranch } from '../models/restaurants.model';
 import { AppSampleData } from '../shared/constants/temp-data';
 import { RestaurantService } from '../service/restaurant.service';
 import { DatePipe } from '@angular/common';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ReservationService } from '../service/reservation.service';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-search-restaurants',
@@ -32,7 +33,7 @@ export class SearchRestaurantsComponent implements OnInit {
   bookingTables: DiningTable[] = [];
   selectedTable!: DiningTable;
   reservationSuccess = false;
-
+  claims: Claim[] = [];
   modalRef?: BsModalRef;
   config = {
     backdrop: true,
@@ -41,13 +42,17 @@ export class SearchRestaurantsComponent implements OnInit {
 
   constructor(private restaurantService: RestaurantService, private datePipe: DatePipe,
     private modalService: BsModalService, private reservationService: ReservationService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private loginService: LoginService) {
     // this.restaurants = AppSampleData.restaurants;
     // this.restaurantBranches = AppSampleData.restaurantBranches;
     // this.filteredRestaurants = AppSampleData.restaurants;
   }
 
   ngOnInit(): void {
+    this.loginService.claims$.subscribe((c) => {
+      this.claims = c;      
+    });
     this.getRestaurants();
   }
 

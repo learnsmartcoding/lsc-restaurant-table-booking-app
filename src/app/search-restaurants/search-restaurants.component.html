@@ -11,7 +11,7 @@
                 data-aos="zoom-out" data-aos-delay="200"></div>
             <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
                 <div style="margin:10px;">
-                    <div class="row gy-4">
+                    <div class="row gy-4" *ngIf="claims.length">
                         <div class="col-lg-8 col-md-8">
                             <!-- Select control for listing restaurants -->
                             <div class="form-group">
@@ -105,7 +105,7 @@
                                        <button class="btn btn-default btn-block" *ngIf="table.tableStatus!=='Available'" disabled>{{table.tableStatus}}</button>
                                        &nbsp;<button class="btn btn-success btn-block" 
                                        (click)="checkInReservation(table)"
-                                       *ngIf="userEmailId===table.userEmailId && table.tableStatus==='Booked'">Check In</button>
+                                       *ngIf="userEmailId===table.userEmailId && table.tableStatus==='Booked' && claims.length">Check In</button>
                                     </div>
                                 </div>
                             </div>

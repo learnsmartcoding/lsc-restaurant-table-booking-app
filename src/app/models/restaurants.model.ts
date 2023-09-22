@@ -46,3 +46,9 @@ export interface Restaurant{
     reservationDate:Date;
     reservationStatus:string;
   }
+
+  export interface Claim{
+    claim:string;
+    value:string;
+    description:string;
+  }

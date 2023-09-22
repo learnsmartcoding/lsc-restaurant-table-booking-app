@@ -4,11 +4,50 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-<app-header></app-header>
+<!-- <app-header></app-header> -->
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <a href="https://youtube.com/@learnsmartcoding" class="logo d-flex align-items-center me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <h1><span><img src="../../assets/custom/Learn Smart Coding Logo white bg.png"></span></h1>
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="#" [routerLink]="['/home']" routerLinkActive="router-link-active"  >Home</a></li>
+        <li><a href="#" [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a></li>
+        <li><a href="#" [routerLink]="['/menu']" routerLinkActive="router-link-active" >Menu</a></li>
+        <li><a href="#" [routerLink]="['/events']" routerLinkActive="router-link-active" >Events</a></li>
+        <li><a href="#" [routerLink]="['/chefs']" routerLinkActive="router-link-active" >Chefs</a></li>
+        <li><a href="#" [routerLink]="['/gallery']" routerLinkActive="router-link-active" >Gallery</a></li>      
+        <li><a href="#" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a></li>
+        <li class="dropdown"><a href="#"><span>Action</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a [routerLink]="['/claims']" routerLinkActive="router-link-active"  *ngIf="loginDisplay">Claims</a></li>    
+            <li><a *ngIf="loginDisplay" (click)="editProfile()">Edit Profile</a></li>
+            <li><a *ngIf="!loginDisplay" (click)="login()">Login</a></li>
+            <li><a *ngIf="loginDisplay" (click)="logout()">Logout</a></li>           
+          </ul>
+        </li>
+       
+    
+      </ul>
+    </nav><!-- .navbar -->
+
+    <a class="btn-book-a-table" href="#" [routerLink]="['/book-a-table']" routerLinkActive="router-link-active" >Book a Table</a>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header><!-- End Header -->
 
 <main id="main">
   
-  <router-outlet></router-outlet>  
+  <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+  <router-outlet *ngIf="!isIframe"></router-outlet>
 </main><!-- End #main -->
 <app-footer></app-footer>
 <!-- End Footer -->
