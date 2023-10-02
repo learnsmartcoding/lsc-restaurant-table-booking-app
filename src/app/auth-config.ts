@@ -6,6 +6,7 @@
  */
 
 import { LogLevel, Configuration, BrowserCacheLocation } from '@azure/msal-browser';
+import { environment } from 'src/environments/environment';
 
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1;
 
@@ -41,7 +42,7 @@ export const b2cPolicies = {
  */
 export const msalConfig: Configuration = {
     auth: {
-        clientId: '302bc019-f861-4ba4-971d-bf1b2c2b2cae', // This is the ONLY mandatory field that you need to supply.
+        clientId: environment.adb2cConfig.clientId, // This is the ONLY mandatory field that you need to supply.
         authority: b2cPolicies.authorities.signUpSignIn.authority, // Defaults to "https://login.microsoftonline.com/common"
         knownAuthorities: [b2cPolicies.authorityDomain], // Mark your B2C tenant's domain as trusted.
         redirectUri: '/', // Points to window.location.origin by default. You must register this URI on Azure portal/App Registration.
@@ -72,10 +73,10 @@ export const msalConfig: Configuration = {
  */
  export const protectedResources = {
     api: {
-      endpoint: "https://localhost:44351/api/Reservation",
+      endpoint: environment.adb2cConfig.apiEndpointUrl,
       scopes: {
-          read: ["https://learnsmartcoding.onmicrosoft.com/restaurant/api/Booking.Read"],
-          write: ["https://learnsmartcoding.onmicrosoft.com/restaurant/api/Booking.Write"]
+          read: [environment.adb2cConfig.readScopeUrl],
+          write: [environment.adb2cConfig.writeScopeUrl]
       }
   }
 }

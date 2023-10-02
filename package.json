@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-prod": "ng build --configuration=prod --output-hashing=all",
+    "build-staging": "ng build --configuration=stage --output-hashing=all",
+    "build-qa": "ng build --configuration=qa --output-hashing=all"
   },
   "private": true,
   "dependencies": {

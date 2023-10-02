@@ -1,0 +1,24 @@
+trigger:
+- main  # Define the branch to trigger the pipeline on
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use the latest Ubuntu agent
+
+variables:
+  # Define your environment-specific variables here
+  buildConfiguration: 'prod'
+  # Add any other variables you need for deployment, like connection strings, etc.
+
+steps:
+- script: |
+    npm install
+    npm run build-prod
+  displayName: 'Build Angular App'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)/dist'
+    artifactName: 'angular-app'
+  displayName: 'Publish Build Artifacts'
+
+# Add additional steps for deployment here, like deploying to Azure, AWS, or a custom server.
