@@ -8,6 +8,7 @@ export interface EnvironmentConfiguration {
         getDiningTables: string;
         saveReservation: string;
         updateReservation: string;
+        getReservationDetails: string;
     },
     adb2cConfig: {
         clientId: string;

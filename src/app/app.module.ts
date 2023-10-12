@@ -29,6 +29,7 @@ import { MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalBroadcas
 import { IPublicClientApplication, PublicClientApplication, InteractionType } from '@azure/msal-browser';
 import { msalConfig, protectedResources, loginRequest } from './auth-config';
 import { ClaimsDetailsComponent } from './claims-details/claims-details.component';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 
 
 /**
@@ -103,7 +104,8 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     SearchRestaurantsComponent,
     DaySuffixPipe,
     CollectUserInfoComponent,
-    ClaimsDetailsComponent
+    ClaimsDetailsComponent,
+    ReservationDetailsComponent
   ],
   imports: [
     BrowserModule,

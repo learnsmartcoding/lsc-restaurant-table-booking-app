@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { DiningTable, ReserveTable, Restaurant, RestaurantBranch } from '../models/restaurants.model';
+import { DiningTable, ReserveTable, Restaurant, RestaurantBranch , ReservationDetailsModel} from '../models/restaurants.model';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 
@@ -13,10 +13,10 @@ export class ReservationService {
         this.apiUrl = environment.apiUrl;
     }
 
-    //   GetRestaurants(id: number): Observable<Restaurant> {
-    //     const url = 
-    //     return this.get<Product>(url);
-    //   }
+      GetReservationDetails(): Observable<ReservationDetailsModel[]> {
+        const url = `${this.apiUrl}/${environment.apiEndpoints.getReservationDetails}`;
+        return this.getArrary<ReservationDetailsModel>(url);
+      }
 
     CreateReservation(model: ReserveTable): Observable<any> {
         const url = `${this.apiUrl}/${environment.apiEndpoints.saveReservation}`;

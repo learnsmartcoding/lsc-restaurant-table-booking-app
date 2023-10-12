@@ -10,6 +10,8 @@ import { ChefsComponent } from './chefs/chefs.component';
 import { SearchRestaurantsComponent } from './search-restaurants/search-restaurants.component';
 import { ClaimsDetailsComponent } from './claims-details/claims-details.component';
 import { RoleAuthGuard } from './core/role-auth.guard';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { SuperAdminAuthGuard } from './core/super-admin.guard copy';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -29,6 +31,10 @@ const routes: Routes = [
   {
     path: 'claims', component: ClaimsDetailsComponent,
     canActivate: [RoleAuthGuard] // Apply the RoleAuthGuard to this route
+  },
+  {
+    path: 'reservations', component: ReservationDetailsComponent
+    ,canActivate: [SuperAdminAuthGuard] // Apply the RoleAuthGuard to this route
   },
   { path: 'book-a-table', component: SearchRestaurantsComponent }];
 
