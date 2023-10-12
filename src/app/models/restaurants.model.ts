@@ -52,3 +52,19 @@ export interface Restaurant{
     value:string;
     description:string;
   }
+  // reservation-details.model.ts
+export interface ReservationDetailsModel {
+  name: string;
+  restaurantBranchName: string;
+  address: string;
+  phone: string;
+  tableName: string;
+  capacity: number;
+  reservationDate: Date;
+  mealType: string;
+  tableStatus: string;
+  reservationStatus: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}

@@ -14,7 +14,8 @@ export const environment: EnvironmentConfiguration = {
     getRestaurantBranches:'Restaurant/branches',
     getDiningTables:'Restaurant/diningtables',
     updateReservation:'Reservation/CheckIn',
-    saveReservation:'Restaurant'
+    saveReservation:'Restaurant',
+    getReservationDetails:'Reservation/getreservations'
   },
   adb2cConfig: {
     clientId: '5c0e7370-f833-4cb1-a9c1-ad683586adac',

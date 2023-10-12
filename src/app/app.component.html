@@ -27,6 +27,7 @@
         <li class="dropdown"><a href="#"><span>Action</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
             <li><a [routerLink]="['/claims']" routerLinkActive="router-link-active"  *ngIf="loginDisplay">Claims</a></li>    
+            <li><a [routerLink]="['/reservations']" routerLinkActive="router-link-active"  *ngIf="loginDisplay">Reservations</a></li>  
             <li><a *ngIf="loginDisplay" (click)="editProfile()">Edit Profile</a></li>
             <li><a *ngIf="!loginDisplay" (click)="login()">Login</a></li>
             <li><a *ngIf="loginDisplay" (click)="logout()">Logout</a></li>           

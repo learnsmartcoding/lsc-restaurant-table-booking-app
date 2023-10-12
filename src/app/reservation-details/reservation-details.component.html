@@ -1,0 +1,56 @@
+ <!-- ======= Contact Section ======= -->
+ <section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Contact</h2>
+      <p>Need Help? <span>Contact Us</span></p>
+    </div>
+
+
+    <div class="row gy-4">
+      <div class="table table-responsive table-hover">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Branch</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Table Name</th>
+              <th>Capacity</th>
+              <th>Reservation Date</th>
+              <th>Meal Type</th>
+              <th>Table Status</th>
+              <th>Reservation Status</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let detail of reservationDetails">
+              <td>{{ detail.name }}</td>
+              <td>{{ detail.restaurantBranchName }}</td>
+              <td>{{ detail.address }}</td>
+              <td>{{ detail.phone }}</td>
+              <td>{{ detail.tableName }}</td>
+              <td>{{ detail.capacity }}</td>
+              <td>{{ detail.reservationDate | date: 'medium' }}</td>
+              <td>{{ detail.mealType }}</td>
+              <td>{{ detail.tableStatus }}</td>
+              <td>{{ detail.reservationStatus }}</td>
+              <td>{{ detail.firstName }} {{ detail.lastName }}</td>
+              <td>{{ detail.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+
+    </div>
+
+   
+
+  </div>
+</section><!-- End Contact Section -->
+\
