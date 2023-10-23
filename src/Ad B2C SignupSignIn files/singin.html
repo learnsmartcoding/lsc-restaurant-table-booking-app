@@ -1,50 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign In with Learn Smart Coding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="https://lscadb2cdemo.blob.core.windows.net/adb2c/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Title Page-->
+    <title>Sign In - Learn Smart Coding Youtube Channel</title>
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="https://lscadb2cdemo.blob.core.windows.net/adb2c/css/style.css">
+    <!-- Icons font CSS-->
+    <link href="https://learnsmartcoding.blob.core.windows.net/theme/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="https://learnsmartcoding.blob.core.windows.net/theme/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="https://learnsmartcoding.blob.core.windows.net/theme/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="https://learnsmartcoding.blob.core.windows.net/theme/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="https://learnsmartcoding.blob.core.windows.net/theme/css/main.css" rel="stylesheet" media="all">
 	
+<script>
+  // Function to add classes to the button
+  function addButtonClasses() {
+    const button = document.getElementById('next');
+
+    if (button) {
+      button.classList.add('btn', 'btn--radius-2', 'btn--blue');
+    }
+  }
+
+  // Create a MutationObserver to watch for changes in the DOM
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    // Check if the button is added to the DOM
+    addButtonClasses();
+  });
+
+  // Observe changes to the body of the document
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
+
+
+	<style>
+	#next {
+  background-color: #0078d4; /* Background color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 4px; /* Rounded corners */
+  text-align: center; /* Center text */
+  font-weight: bold; /* Bold text */
+}
+
+
+#next:hover {
+  background-color: #005fbb; /* Change background color on hover */
+}
+
+
+	/* Custom styles for Azure AD B2C input controls */
+
+/* Header styles */
+#api .heading h1 {
+  color: blue;
+  text-align: center;
+}
+
+/* Centered titles */
+#api .intro h2,
+#api .divider h2 {
+  text-align: center;
+}
+
+/* Form container */
+#api .entry {
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* Label styles */
+#api .entry-item label {
+  font-weight: bold;
+}
+
+/* Input styles */
+#api input[type="text"],
+#api input[type="email"],
+#api input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Password label styles */
+#api .password-label label {
+  font-weight: bold;
+}
+
+/* Sign in Button */
+#api input[type="submit"] {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold; /* Add bold text */
+}
+
+/* Style the button on hover */
+#api input[type="submit"]:hover {
+  background-color: #005fbb;
+}
+
+/* Link styles (e.g., "Forgot your password?") */
+#api a {
+ color: #0078d4;
+  text-decoration: none;
+  display: block; /* Display the link as a block element */
+  margin-top: 10px; /* Add some space above the link */
+}
+
+/* Error messages or notifications */
+#api .error {
+  color: red;
+}
+
+/* Placeholder text */
+#api input::placeholder {
+  color: #999;
+}
+
+/* Focus styles for inputs (optional) */
+#api input:focus {
+  border: 1px solid #0078d4;
+  outline: none;
+}
+
+/* Create account link styles */
+#api #createAccount {
+  color: #0078d4;
+  text-decoration: underline; /* Underline the "Sign up now" link */
+}
+
+/* Divider styles */
+#api .divider {
+  text-align: center;
+  margin: 20px 0; /* Add some space below the divider */
+}
+
+/* Sign in title styles */
+#api .heading h1 {
+  font-size: 24px;
+}
+
+/* Additional styles can be added as needed */
+
+/* Be cautious with overriding default B2C styles to maintain consistency */
+
+/* Always test thoroughly to ensure your custom UI remains functional and visually appealing */
+
+.intro h2 {
+  text-align: center;
+  margin: 20px;
+}
+
+
+.rounded-logo {
+  display: block; /* Make the image a block element to center it horizontally */
+  margin: 0 auto; /* Center the image horizontally */
+  border-radius: 50%; /* Make the image rounded (circle) */
+  width: 100px; /* Set the width of the image */
+  height: 100px; /* Set the height of the image */
+}
+
+/* Center the entire content */
+#api {
+  text-align: center;
+}
+
+/* Style the social login section */
+.claims-provider-list-buttons.social {
+  margin-top: 20px;
+}
+
+/* Style the "OR" divider */
+.divider {
+  margin: 20px 0;
+}
+
+/* Style the "OR" text */
+.divider h2 {
+  color: #0078d4;
+  font-size: 20px;
+}
+
+/* Style the "Sign in with your social account" title */
+.claims-provider-list-buttons.social .intro h2 {
+  color: #0078d4;
+  font-size: 20px;
+}
+
+/* Style the social login buttons */
+.claims-provider-list-buttons.social button.accountButton {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 10px 5px;
+  font-weight: bold;
+  width: 200px;
+}
+
+/* Style the social login buttons on hover */
+.claims-provider-list-buttons.social button.accountButton:hover {
+  background-color: #005fbb;
+}
+
+/* Additional styles can be added as needed */
+
+/* Be cautious with overriding default B2C styles to maintain consistency */
+
+/* Always test thoroughly to ensure your custom UI remains functional and visually appealing */
+
+/* Style the "Forgot your password?" link and move it below the password label */
+#api .password-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Adjust alignment as needed */
+}
+
+/* Style the "Forgot your password?" link */
+#forgotPassword {
+  margin-top: 30px; /* Add some space above the link */
+  text-decoration: none; /* Remove the underline if needed */
+  color: #0078d4; /* Link color */
+}
+
+/* Additional styles can be added as needed */
+
+
+</style>
 </head>
+
 <body>
-
-    <div class="main">
-
-        <!-- Sing in  Form -->
-        <section class="sign-in">
-            <div class="container">
-			
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="https://lscadb2cdemo.blob.core.windows.net/adb2c/images/lsc-logo-1.png" alt="sing up image"></figure>
-                        
-                    </div>
-
-                    <div class="signin-form">
-					     <div id="api"></div>
-                        <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="https://www.facebook.com/profile.php?id=100075494291167"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/lsc_karthik"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-					  
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                     <img src="https://learnsmartcoding.blob.core.windows.net/theme/images/lsc-logo-2.png" class="rounded-logo"  alt="Learn Smart Coding" />
+					 <div id="api"></div>
+                    
                 </div>
             </div>
-        </section>
-
+        </div>
     </div>
 
-   
-</body>
+    <!-- Jquery JS-->
+    <script src="https://learnsmartcoding.blob.core.windows.net/theme/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="https://learnsmartcoding.blob.core.windows.net/theme/vendor/select2/select2.min.js"></script>
+    <script src="https://learnsmartcoding.blob.core.windows.net/theme/vendor/datepicker/moment.min.js"></script>
+    <script src="https://learnsmartcoding.blob.core.windows.net/theme/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="https://learnsmartcoding.blob.core.windows.net/theme/js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
+<!-- end document-->
